@@ -1,0 +1,4 @@
+2025-12-06 03:03:11,284 [INFO] Mini Render Queue started.
+2025-12-06 03:03:11,284 [INFO] Watching directory: /home/ubuntu/mini-render-queue/jobs
+2025-12-06 03:03:24,666 [INFO] Received signal 2, shutting down after current job...
+2025-12-06 03:03:25,288 [INFO] Render Queue stopped cleanly. Goodbye!
