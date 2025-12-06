@@ -1,0 +1,5 @@
+{
+  "id": "sample_job",
+  "priority": 5,
+  "command": "echo Rendering sample frame && sleep 1"
+}
