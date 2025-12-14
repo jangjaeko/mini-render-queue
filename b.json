@@ -1,0 +1,5 @@
+{
+  "priority": 10,
+  "command": "echo high priority job",
+  "user_id": "high"
+}

@@ -1,43 +1,73 @@
+#!/usr/bin/env python3
 import json
-from pathlib import Path
+import logging
+import signal
+import subprocess
+import sys
+import time
 from dataclasses import dataclass, field
 from heapq import heappush, heappop
-from typing import List, Optional
+from pathlib import Path
+from typing import List, Tuple
+
 
 # -------------------------------------------------------------------
-
-
+# Configuration
+# -------------------------------------------------------------------
 JOBS_DIR = Path(__file__).resolve().parent.parent / "jobs"
+LOGS_DIR = Path(__file__).resolve().parent.parent / "logs"
+POLL_INTERVAL = 1.0  # seconds
 
-@dataclass(order=True) # this enables comparison operators
+
+# -------------------------------------------------------------------
+# Logging Setup
+# -------------------------------------------------------------------
+LOGS_DIR.mkdir(parents=True, exist_ok=True)
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.FileHandler(LOGS_DIR / "render_queue.log"),
+        logging.StreamHandler(sys.stdout),
+    ],
+)
+
+
+# -------------------------------------------------------------------
+# Job Item Data Structure
+# -------------------------------------------------------------------
+@dataclass(order=True)
 class JobItem:
     """
-    Represents a single job with priority.
-    'order=True' lets us compare JobItem objects for heapq.
+    Represents a job loaded from a JSON file.
+    Implements order-by-priority using heapq.
+    Note: heapq pops the smallest value first,
+    so priority is stored as negative for descending order.
     """
-    sort_index: int = field(init=False, repr=False)
+    sort_index: Tuple[int, float] = field(init=False, repr=False)
     priority: int
+    created_at: float
     job_id: str
     command: str
     raw: dict = field(compare=False, default_factory=dict)
 
     def __post_init__(self):
-        # heapq is a min-heap, so we invert priority
-        # so that higher priority jobs come out first
-        self.sort_index = -self.priority
+        self.sort_index = (-self.priority, self.created_at)
 
+
+# -------------------------------------------------------------------
+# Priority Queue Wrapper
+# -------------------------------------------------------------------
 class JobQueue:
-    """
-    Simple priority queue wrapper around heapq.
-    """
     def __init__(self):
         self._queue: List[JobItem] = []
 
     def push(self, job: JobItem):
         heappush(self._queue, job)
-        print(f"Queued job={job.job_id} priority={job.priority}")
+        logging.info(f"Queued job={job.job_id} priority={job.priority}")
 
-    def pop(self) -> Optional[JobItem]:
+    def pop(self) -> JobItem | None:
         if not self._queue:
             return None
         return heappop(self._queue)
@@ -46,72 +76,125 @@ class JobQueue:
         return len(self._queue)
 
 
-
-def load_job_file (path: Path) :
+# -------------------------------------------------------------------
+# Load Jobs from JSON Files
+# -------------------------------------------------------------------
+def load_job_file(path: Path) -> JobItem:
     """
-    Read a JSON job file and return a dir with job metadata
-    Example return value 
-    {
-        "id" : "sample_job",
-        "priority" : 5,
-        "command" : "echo hello"
-    }
+    Reads a JSON job file and converts it into a JobItem.
     """
-    # open json file with json.load()
-    # return job_id , priority , command with dict type
+    with path.open("r", encoding="utf-8") as f:
+        data = json.load(f)
 
-    with path.open("r", encoding="utf-8") as file:
-        data = json.load(file)
     job_id = data.get("id", path.stem)
     priority = int(data.get("priority", 0))
     command = data["command"]
+    created_at = path.stat().st_mtime
+
     return JobItem(
         priority=priority,
+        created_at=created_at,
         job_id=job_id,
         command=command,
         raw=data,
     )
 
-def ensure_jobs_dir():
+
+def scan_jobs_directory(queue: JobQueue):
     """
-    Make sure jobs directory exists.
+    Scans the jobs/ directory for new JSON job files.
+    Once loaded, the file is removed to avoid duplicate processing.
     """
     JOBS_DIR.mkdir(parents=True, exist_ok=True)
 
+    for path in JOBS_DIR.glob("*.json"):
+        try:
+            job_item = load_job_file(path)
+            queue.push(job_item)
+            logging.info(f"Loaded job file: {path.name}")
+            path.unlink()  # Prevent double execution
+        except Exception as e:
+            logging.error(f"Failed to load job {path.name}: {e}", exc_info=True)
 
-def list_job_files():
-    """
-    Load all jobs and process them in priority order.
-    """
-    ensure_jobs_dir()
-    
-    job_files = list(JOBS_DIR.glob("*.json"))
 
-    if not job_files:
-        print("No job files found in jobs directory.")
-        return
+# -------------------------------------------------------------------
+# Execute a Job
+# -------------------------------------------------------------------
+def process_job(job: JobItem):
+    """
+    Runs the job command using subprocess and logs the output.
+    """
+    logging.info(f"[START] job={job.job_id} command='{job.command}'")
+
+    try:
+        result = subprocess.run(
+            job.command,
+            shell=True,
+            text=True,
+            capture_output=True,
+            check=True,
+        )
+
+        if result.stdout:
+            logging.info(f"[OUTPUT] job={job.job_id} stdout:\n{result.stdout}")
+        if result.stderr:
+            logging.warning(f"[OUTPUT] job={job.job_id} stderr:\n{result.stderr}")
+
+        logging.info(f"[SUCCESS] job={job.job_id}")
+
+    except subprocess.CalledProcessError as e:
+        logging.error(
+            f"[FAILED] job={job.job_id} exit_code={e.returncode}\n"
+            f"stdout={e.stdout}\nstderr={e.stderr}"
+        )
+    except Exception as e:
+        logging.error(f"[FAILED] job={job.job_id} unexpected error: {e}", exc_info=True)
+
+
+# -------------------------------------------------------------------
+# Graceful Shutdown Handler
+# -------------------------------------------------------------------
+class GracefulKiller:
+    """
+    Ensures the program exits cleanly when receiving SIGINT / SIGTERM.
+    Allows current job to finish before shutting down.
+    """
+    def __init__(self):
+        self._kill_now = False
+        signal.signal(signal.SIGINT, self.exit_gracefully)
+        signal.signal(signal.SIGTERM, self.exit_gracefully)
+
+    @property
+    def kill_now(self):
+        return self._kill_now
+
+    def exit_gracefully(self, signum, frame):
+        logging.info(f"Received signal {signum}, shutting down after current job...")
+        self._kill_now = True
+
+
+# -------------------------------------------------------------------
+# Main Loop
+# -------------------------------------------------------------------
+def main():
+    logging.info("Mini Render Queue started.")
+    logging.info(f"Watching directory: {JOBS_DIR}")
 
     queue = JobQueue()
+    killer = GracefulKiller()
 
-    # 1) 모든 job 파일을 읽어서 큐에 넣기
-    for path in job_files:
-        job = load_job_file(path)
-        # TODO: 여기서 queue.push(job) 호출
-        # 그리고 "Queued job ..." 같은 출력도 찍어보기
-        queue.push(job)
-        print(f"Queued job={job.job_id} priority={job.priority}")
+    while not killer.kill_now:
+        scan_jobs_directory(queue)
 
-
-    # 2) 큐에서 하나씩 꺼내서 priority 순서 확인
-    print("\nProcessing jobs in priority order:")
-    # TODO: while len(queue) > 0:
-    #          job = queue.pop()
-    #          job 정보 출력 (id, priority, command)
-    while len(queue) > 0:
         job = queue.pop()
-        print(f"Processing job={job.job_id} priority={job.priority} command={job.command}")
+        if job:
+            process_job(job)
+        else:
+            time.sleep(POLL_INTERVAL)
 
+    logging.info("Render Queue stopped cleanly. Goodbye!")
 
 
 if __name__ == "__main__":
-    list_job_files()
+    main()
+
