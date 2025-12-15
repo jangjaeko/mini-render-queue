@@ -8,7 +8,9 @@ import time
 from dataclasses import dataclass, field
 from heapq import heappush, heappop
 from pathlib import Path
-from typing import List, Tuple
+from typing import List, Tuple, Optional
+import argparse
+
 
 
 # -------------------------------------------------------------------
@@ -18,6 +20,23 @@ JOBS_DIR = Path(__file__).resolve().parent.parent / "jobs"
 LOGS_DIR = Path(__file__).resolve().parent.parent / "logs"
 POLL_INTERVAL = 1.0  # seconds
 
+
+# -------------------------------------------------------------------
+# CLI Arguments
+# -------------------------------------------------------------------
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Mini Render Queue"
+    )
+
+    parser.add_argument(
+        "--poll-interval",
+        type=float,
+        default=1.0,
+        help="Seconds to wait between job scans (default: 1.0)",
+    )
+
+    return parser.parse_args()
 
 # -------------------------------------------------------------------
 # Logging Setup
@@ -67,7 +86,7 @@ class JobQueue:
         heappush(self._queue, job)
         logging.info(f"Queued job={job.job_id} priority={job.priority}")
 
-    def pop(self) -> JobItem | None:
+    def pop(self) -> Optional[JobItem]:
         if not self._queue:
             return None
         return heappop(self._queue)

@@ -1,5 +1,0 @@
-{
-  "id": "low",
-  "priority": 1,
-  "command": "echo low priority job"
-}

@@ -21,3 +21,708 @@ stderr=
 2025-12-05 23:28:12,933 [INFO] Watching directory: C:\Users\tecdo\Desktop\mini-render-queue\jobs
 2025-12-05 23:28:20,314 [INFO] Received signal 2, shutting down after current job...
 2025-12-05 23:28:20,951 [INFO] Render Queue stopped cleanly. Goodbye!
+2025-12-14 23:44:33,257 [INFO] Mini Render Queue started.
+2025-12-14 23:44:33,381 [INFO] Watching directory: C:\Users\tecdo\Desktop\mini-render-queue\jobs
+2025-12-14 23:44:33,399 [INFO] Queued job=high priority=10
+2025-12-14 23:44:33,399 [INFO] Loaded job file: job_high.json
+2025-12-14 23:44:33,417 [INFO] Queued job=low priority=1
+2025-12-14 23:44:33,417 [INFO] Loaded job file: job_low.json
+2025-12-14 23:44:33,433 [INFO] Queued job=sample_job priority=5
+2025-12-14 23:44:33,434 [INFO] Loaded job file: sample_job.json
+2025-12-14 23:44:33,436 [INFO] [START] job=high command='echo high priority job'
+2025-12-14 23:44:33,592 [INFO] [OUTPUT] job=high stdout:
+high priority job
+
+2025-12-14 23:44:33,593 [INFO] [SUCCESS] job=high
+2025-12-14 23:44:33,596 [INFO] [START] job=sample_job command='echo Rendering sample frame && sleep 1'
+2025-12-14 23:44:34,936 [INFO] [OUTPUT] job=sample_job stdout:
+Rendering sample frame 
+
+2025-12-14 23:44:34,936 [INFO] [SUCCESS] job=sample_job
+2025-12-14 23:44:34,939 [INFO] [START] job=low command='echo low priority job'
+2025-12-14 23:44:35,002 [INFO] [OUTPUT] job=low stdout:
+low priority job
+
+2025-12-14 23:44:35,002 [INFO] [SUCCESS] job=low
+2025-12-14 23:44:48,088 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:44:49,172 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:44:50,180 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:44:51,198 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:44:52,219 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:44:53,224 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:44:54,234 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:44:55,255 [INFO] Queued job=high priority=10
+2025-12-14 23:44:55,256 [INFO] Loaded job file: job_high.json
+2025-12-14 23:44:55,257 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:44:55,260 [INFO] [START] job=high command='echo high priority job'
+2025-12-14 23:44:55,322 [INFO] [OUTPUT] job=high stdout:
+high priority job
+
+2025-12-14 23:44:55,323 [INFO] [SUCCESS] job=high
+2025-12-14 23:44:55,326 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:44:56,338 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:44:57,355 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:44:58,384 [ERROR] Failed to load job job_low.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:44:58,388 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:44:59,406 [ERROR] Failed to load job job_low.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:44:59,410 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:00,426 [ERROR] Failed to load job job_low.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:00,429 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:01,435 [ERROR] Failed to load job job_low.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:01,440 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:02,451 [ERROR] Failed to load job job_low.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:02,453 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:03,469 [ERROR] Failed to load job job_low.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:03,472 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:04,481 [ERROR] Failed to load job job_low.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:04,483 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:05,489 [ERROR] Failed to load job job_low.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:05,492 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:06,508 [ERROR] Failed to load job job_low.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:06,511 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:07,587 [ERROR] Failed to load job job_low.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:07,592 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:08,611 [ERROR] Failed to load job job_low.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:08,614 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:09,619 [ERROR] Failed to load job job_low.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:09,621 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:10,632 [ERROR] Failed to load job job_low.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:10,634 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:11,641 [ERROR] Failed to load job job_low.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:11,644 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:12,660 [ERROR] Failed to load job job_low.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:12,662 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:13,677 [ERROR] Failed to load job job_low.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:13,679 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:14,697 [ERROR] Failed to load job job_low.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-12-14 23:45:14,699 [ERROR] Failed to load job sample_job.json: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "src/main.py", line 131, in scan_jobs_directory
+    job_item = load_job_file(path)
+  File "src/main.py", line 106, in load_job_file
+    data = json.load(f)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 296, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\tecdo\AppData\Local\Programs\Python\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
