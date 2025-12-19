@@ -30,10 +30,9 @@ def parse_args():
     )
 
     parser.add_argument(
-        "--poll-interval",
-        type=float,
-        default=1.0,
-        help="Seconds to wait between job scans (default: 1.0)",
+        "--dry-run",
+        action="store_true",
+        help="Do not execute commands; just log what would run."
     )
 
     return parser.parse_args()
@@ -139,12 +138,15 @@ def scan_jobs_directory(queue: JobQueue):
 # -------------------------------------------------------------------
 # Execute a Job
 # -------------------------------------------------------------------
-def process_job(job: JobItem):
+def process_job(job: JobItem, dry_run: bool = False):
     """
     Runs the job command using subprocess and logs the output.
     """
     logging.info(f"[START] job={job.job_id} command='{job.command}'")
-
+    if dry_run:
+        logging.info(f"[DRY-RUN] job={job.job_id} would run: '{job.command}'")
+        logging.info(f"[SUCCESS] job={job.job_id} (dry-run)")
+        return    
     try:
         result = subprocess.run(
             job.command,
@@ -207,7 +209,7 @@ def main():
 
         job = queue.pop()
         if job:
-            process_job(job)
+            process_job(job, dry_run=dry_run)
         else:
             time.sleep(POLL_INTERVAL)
 
